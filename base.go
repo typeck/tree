@@ -18,14 +18,10 @@ func NewBinNode(v Interface) *BinNode {
 	}
 }
 
-func NewBinNodeWithParent(v Interface, parent *BinNode) {
+func NewBinNodeWithParent(v Interface, parent *BinNode) *BinNode {
 	node := NewBinNode(v)
 	node.Parent = parent
-	if parent.HasLeft() {
-		parent.Right = node
-	}else {
-		parent.Left = node
-	}
+	return node
 }
 
 func (n *BinNode) HasLeft() bool {
