@@ -1,24 +1,19 @@
 package tree
 
-type Interface interface {
-	Less(j Interface) bool
-	Equal(j Interface) bool
-}
-
 type BinNode struct {
 	Left 	*BinNode
 	Right 	*BinNode
 	Parent  *BinNode
-	Data 	Interface
+	Data 	interface{}
 }
 
-func NewBinNode(v Interface) *BinNode {
+func NewBinNode(v interface{}) *BinNode {
 	return &BinNode{
 		Data: v,
 	}
 }
 
-func NewBinNodeWithParent(v Interface, parent *BinNode) *BinNode {
+func NewBinNodeWithParent(v interface{}, parent *BinNode) *BinNode {
 	node := NewBinNode(v)
 	node.Parent = parent
 	return node
@@ -37,3 +32,5 @@ func (n *BinNode) HasRight() bool {
 	}
 	return false
 }
+
+
